@@ -57,8 +57,8 @@
 
 	var App = __webpack_require__(227);
 	var Battleground = __webpack_require__(228);
-	var Characters = __webpack_require__(229);
-	var Home = __webpack_require__(230);
+	var Characters = __webpack_require__(230);
+	var Home = __webpack_require__(231);
 	// var Results = require('./components/Results.jsx');
 	// var Search = require('./components/Search.jsx');
 
@@ -26411,7 +26411,7 @@
 
 	var React = __webpack_require__(1);
 
-	var Search = __webpack_require__(231);
+	var Search = __webpack_require__(229);
 
 	var Battleground = React.createClass({
 		displayName: 'Battleground',
@@ -26444,50 +26444,6 @@
 
 	var React = __webpack_require__(1);
 
-	var Characters = React.createClass({
-		displayName: 'Characters',
-
-
-		render: function () {
-			return React.createElement(
-				'h1',
-				null,
-				'Characters'
-			);
-		}
-
-	});
-
-	module.exports = Characters;
-
-/***/ },
-/* 230 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-
-	var Home = React.createClass({
-		displayName: 'Home',
-
-
-		render: function () {
-			return React.createElement(
-				'h1',
-				null,
-				'Home'
-			);
-		}
-
-	});
-
-	module.exports = Home;
-
-/***/ },
-/* 231 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-
 	var Search = React.createClass({
 		displayName: "Search",
 
@@ -26513,6 +26469,50 @@
 	});
 
 	module.exports = Search;
+
+/***/ },
+/* 230 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+
+	var Characters = React.createClass({
+		displayName: 'Characters',
+
+
+		render: function () {
+			return React.createElement(
+				'h1',
+				null,
+				'Characters'
+			);
+		}
+
+	});
+
+	module.exports = Characters;
+
+/***/ },
+/* 231 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+
+	var Home = React.createClass({
+		displayName: 'Home',
+
+
+		render: function () {
+			return React.createElement(
+				'h1',
+				null,
+				'Home'
+			);
+		}
+
+	});
+
+	module.exports = Home;
 
 /***/ }
 /******/ ]);

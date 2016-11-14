@@ -1,0 +1,15 @@
+.red {
+	overflow: auto;
+	background-color: #E4212D;
+	width: 100%;
+	height: 100px;
+}
+#logo {
+	height: 220px;
+	width: 300px;
+	float: left;
+}
+
+main { 
+	text-align: center;
+}
