@@ -1,7 +1,7 @@
 var express = require('express');
 var lowdb = require('lowdb');
 var fileAsync = require('lowdb/lib/file-async');
-var shortif = requre('shortid');
+var shortId = require('shortid');
 var bodyParser = require('body-parser');
 
 var app = express();

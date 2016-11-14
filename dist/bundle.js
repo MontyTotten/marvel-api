@@ -56,11 +56,23 @@
 	var hashHistory = ReactRouter.hashHistory;
 
 	var App = __webpack_require__(227);
+	var Battleground = __webpack_require__(228);
+	var Characters = __webpack_require__(229);
+	var Home = __webpack_require__(230);
+	// var Results = require('./components/Results.jsx');
+	// var Search = require('./components/Search.jsx');
+
 
 	var jsx = React.createElement(
 		Router,
 		{ history: hashHistory },
-		React.createElement(Route, { path: '/', component: App })
+		React.createElement(
+			Route,
+			{ path: '/', component: App },
+			React.createElement(IndexRoute, { component: Home }),
+			React.createElement(Route, { path: 'characters', component: Characters }),
+			React.createElement(Route, { path: 'battleground', component: Battleground })
+		)
 	);
 
 	ReactDOM.render(jsx, document.querySelector('#app'));
@@ -26345,8 +26357,6 @@
 
 	var Link = __webpack_require__(172).Link;
 
-	app.use(bodyParser());
-
 	function getActiveClass(path) {
 		var current = window.location.hash.slice(1);
 		return current === path ? 'active' : '';
@@ -26367,6 +26377,16 @@
 						Link,
 						{ to: '/', className: getActiveClass('/') },
 						'Home'
+					),
+					React.createElement(
+						Link,
+						{ to: '/characters', className: getActiveClass('/characters') },
+						'Characters'
+					),
+					React.createElement(
+						Link,
+						{ to: '/battleground', className: getActiveClass('/battleground') },
+						'Battleground'
 					)
 				),
 				React.createElement(
@@ -26375,7 +26395,7 @@
 					React.createElement(
 						'h1',
 						null,
-						'App'
+						'Marvel App'
 					),
 					this.props.children
 				)
@@ -26384,6 +26404,86 @@
 	});
 
 	module.exports = App;
+
+/***/ },
+/* 228 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+
+	var Battleground = React.createClass({
+	  displayName: "Battleground",
+
+
+	  render: function () {
+	    return React.createElement(
+	      "div",
+	      null,
+	      React.createElement(
+	        "h1",
+	        null,
+	        "Battleground"
+	      ),
+	      React.createElement("input", {
+	        type: "text"
+	        // value={this.state.newAnimalNameValue}
+	        // onChange={this.handleNewAnimalNameChange}
+	      }),
+	      React.createElement("input", {
+	        type: "text"
+	        // value={this.state.newAnimalSpeciesValue}
+	        // onChange={this.handleNewAnimalSpeciesChange}
+	      }),
+	      React.createElement("button", null)
+	    );
+	  }
+	});
+
+	module.exports = Battleground;
+
+/***/ },
+/* 229 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+
+	var Characters = React.createClass({
+		displayName: 'Characters',
+
+
+		render: function () {
+			return React.createElement(
+				'h1',
+				null,
+				'Characters'
+			);
+		}
+
+	});
+
+	module.exports = Characters;
+
+/***/ },
+/* 230 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+
+	var Home = React.createClass({
+		displayName: 'Home',
+
+
+		render: function () {
+			return React.createElement(
+				'h1',
+				null,
+				'Home'
+			);
+		}
+
+	});
+
+	module.exports = Home;
 
 /***/ }
 /******/ ]);

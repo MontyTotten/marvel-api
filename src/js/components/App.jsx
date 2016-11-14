@@ -14,9 +14,11 @@ var App = React.createClass({
 			<div>
 				<header>
 					<Link to="/" className={getActiveClass('/')}>Home</Link>
+					<Link to="/characters" className={getActiveClass('/characters')}>Characters</Link>
+					<Link to="/battleground" className={getActiveClass('/battleground')}>Battleground</Link>
 				</header>
 				<main>
-					<h1>App</h1>
+					<h1>Marvel App</h1>
 					{this.props.children}
 				</main>
 			</div>
