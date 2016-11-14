@@ -56,14 +56,9 @@
 	var hashHistory = ReactRouter.hashHistory;
 
 	var App = __webpack_require__(227);
-<<<<<<< HEAD
-	var Battleground = __webpack_require__(228);
-	var Characters = __webpack_require__(230);
-=======
 	// var Battleground = require('./components/Battleground.jsx');
 	// var Characters = require('./components/Characters.jsx');
->>>>>>> a4e2dd1bd69e39c20bf6e45f4fb7ee57f0a2961e
-	var Home = __webpack_require__(231);
+	var Home = __webpack_require__(232);
 	// var Results = require('./components/Results.jsx');
 	// var Search = require('./components/Search.jsx');
 
@@ -26359,8 +26354,8 @@
 	var React = __webpack_require__(1);
 
 	var Link = __webpack_require__(172).Link;
-	var Results = __webpack_require__(232);
-	var Search = __webpack_require__(229);
+	var Results = __webpack_require__(230);
+	var Search = __webpack_require__(231);
 
 	function getActiveClass(path) {
 		var current = window.location.hash.slice(1);
@@ -26432,65 +26427,47 @@
 
 /***/ },
 /* 228 */,
-/* 229 */
+/* 229 */,
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 
-<<<<<<< HEAD
-	var Search = __webpack_require__(229);
+	var characterStore = __webpack_require__(233);
 
-	var Battleground = React.createClass({
-		displayName: 'Battleground',
-=======
-	var Search = React.createClass({
-		displayName: "Search",
->>>>>>> a4e2dd1bd69e39c20bf6e45f4fb7ee57f0a2961e
+	var Results = React.createClass({
+		displayName: 'Results',
 
 
 		render: function () {
 			return React.createElement(
-				"div",
+				'div',
 				null,
-				React.createElement("input", {
-					type: "text",
-					placeholder: "Hero begins with..."
-					// value={this.state.newAnimalNameValue}
-					// onChange={this.handleNewAnimalNameChange}
-				}),
-				React.createElement("input", {
-					type: "text",
-					placeholder: "Foe begins with..."
-					// value={this.state.newAnimalSpeciesValue}
-					// onChange={this.handleNewAnimalSpeciesChange}
-				})
+				React.createElement(
+					'h2',
+					null,
+					'Results'
+				)
 			);
 		}
 	});
 
-	module.exports = Search;
+	module.exports = Results;
 
 /***/ },
-/* 230 */,
 /* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 
-<<<<<<< HEAD
 	var Search = React.createClass({
 		displayName: "Search",
-=======
-	var Home = React.createClass({
-		displayName: 'Home',
->>>>>>> a4e2dd1bd69e39c20bf6e45f4fb7ee57f0a2961e
 
 
 		render: function () {
 			return React.createElement(
 				"div",
 				null,
-<<<<<<< HEAD
 				React.createElement("input", {
 					type: "text",
 					placeholder: "Hero begins with..."
@@ -26503,18 +26480,11 @@
 					// value={this.state.newAnimalSpeciesValue}
 					// onChange={this.handleNewAnimalSpeciesChange}
 				})
-=======
-				'Home'
->>>>>>> a4e2dd1bd69e39c20bf6e45f4fb7ee57f0a2961e
 			);
 		}
 	});
 
-<<<<<<< HEAD
 	module.exports = Search;
-=======
-	module.exports = Home;
->>>>>>> a4e2dd1bd69e39c20bf6e45f4fb7ee57f0a2961e
 
 /***/ },
 /* 232 */
@@ -26522,61 +26492,10 @@
 
 	var React = __webpack_require__(1);
 
-<<<<<<< HEAD
-	var Characters = React.createClass({
-		displayName: 'Characters',
-=======
-	var characterStore = __webpack_require__(233);
-
-	var Results = React.createClass({
-		displayName: 'Results',
->>>>>>> a4e2dd1bd69e39c20bf6e45f4fb7ee57f0a2961e
-
-
-		render: function () {
-			return React.createElement(
-				'div',
-				null,
-<<<<<<< HEAD
-				'Characters'
-=======
-				React.createElement(
-					'h2',
-					null,
-					'Results'
-				)
->>>>>>> a4e2dd1bd69e39c20bf6e45f4fb7ee57f0a2961e
-			);
-		}
-	});
-
-<<<<<<< HEAD
-	module.exports = Characters;
-=======
-	module.exports = Results;
->>>>>>> a4e2dd1bd69e39c20bf6e45f4fb7ee57f0a2961e
-
-/***/ },
-/* 233 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var EventEmitter = __webpack_require__(234);
-	var $ = __webpack_require__(235);
-
-<<<<<<< HEAD
 	var Home = React.createClass({
 		displayName: 'Home',
-=======
-	var characterStore = Object.create(EventEmitter.prototype);
-	EventEmitter.call(characterStore);
->>>>>>> a4e2dd1bd69e39c20bf6e45f4fb7ee57f0a2961e
 
-	// Collection
-	var characters = [
-	    // Models
-	];
 
-<<<<<<< HEAD
 		render: function () {
 			return React.createElement(
 				'h1',
@@ -26588,7 +26507,22 @@
 	});
 
 	module.exports = Home;
-=======
+
+/***/ },
+/* 233 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var EventEmitter = __webpack_require__(234);
+	var $ = __webpack_require__(235);
+
+	var characterStore = Object.create(EventEmitter.prototype);
+	EventEmitter.call(characterStore);
+
+	// Collection
+	var characters = [
+	    // Models
+	];
+
 	characterStore.getCharacters = function () {
 	    return characters;
 	};
@@ -37150,7 +37084,6 @@
 	return jQuery;
 	} );
 
->>>>>>> a4e2dd1bd69e39c20bf6e45f4fb7ee57f0a2961e
 
 /***/ }
 /******/ ]);
