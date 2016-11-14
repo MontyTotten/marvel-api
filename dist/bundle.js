@@ -56,14 +56,9 @@
 	var hashHistory = ReactRouter.hashHistory;
 
 	var App = __webpack_require__(227);
-<<<<<<< HEAD
-	var Battleground = __webpack_require__(228);
-	var Characters = __webpack_require__(230);
-=======
 	// var Battleground = require('./components/Battleground.jsx');
 	// var Characters = require('./components/Characters.jsx');
->>>>>>> a4e2dd1bd69e39c20bf6e45f4fb7ee57f0a2961e
-	var Home = __webpack_require__(231);
+	var Home = __webpack_require__(233);
 	// var Results = require('./components/Results.jsx');
 	// var Search = require('./components/Search.jsx');
 
@@ -26359,8 +26354,8 @@
 	var React = __webpack_require__(1);
 
 	var Link = __webpack_require__(172).Link;
-	var Results = __webpack_require__(232);
-	var Search = __webpack_require__(229);
+	var Results = __webpack_require__(228);
+	var Search = __webpack_require__(232);
 
 	function getActiveClass(path) {
 		var current = window.location.hash.slice(1);
@@ -26431,164 +26426,47 @@
 	module.exports = App;
 
 /***/ },
-/* 228 */,
-/* 229 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 
-<<<<<<< HEAD
-	var Search = __webpack_require__(229);
-
-	var Battleground = React.createClass({
-		displayName: 'Battleground',
-=======
-	var Search = React.createClass({
-		displayName: "Search",
->>>>>>> a4e2dd1bd69e39c20bf6e45f4fb7ee57f0a2961e
-
-
-		render: function () {
-			return React.createElement(
-				"div",
-				null,
-				React.createElement("input", {
-					type: "text",
-					placeholder: "Hero begins with..."
-					// value={this.state.newAnimalNameValue}
-					// onChange={this.handleNewAnimalNameChange}
-				}),
-				React.createElement("input", {
-					type: "text",
-					placeholder: "Foe begins with..."
-					// value={this.state.newAnimalSpeciesValue}
-					// onChange={this.handleNewAnimalSpeciesChange}
-				})
-			);
-		}
-	});
-
-	module.exports = Search;
-
-/***/ },
-/* 230 */,
-/* 231 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-
-<<<<<<< HEAD
-	var Search = React.createClass({
-		displayName: "Search",
-=======
-	var Home = React.createClass({
-		displayName: 'Home',
->>>>>>> a4e2dd1bd69e39c20bf6e45f4fb7ee57f0a2961e
-
-
-		render: function () {
-			return React.createElement(
-				"div",
-				null,
-<<<<<<< HEAD
-				React.createElement("input", {
-					type: "text",
-					placeholder: "Hero begins with..."
-					// value={this.state.newAnimalNameValue}
-					// onChange={this.handleNewAnimalNameChange}
-				}),
-				React.createElement("input", {
-					type: "text",
-					placeholder: "Foe begins with..."
-					// value={this.state.newAnimalSpeciesValue}
-					// onChange={this.handleNewAnimalSpeciesChange}
-				})
-=======
-				'Home'
->>>>>>> a4e2dd1bd69e39c20bf6e45f4fb7ee57f0a2961e
-			);
-		}
-	});
-
-<<<<<<< HEAD
-	module.exports = Search;
-=======
-	module.exports = Home;
->>>>>>> a4e2dd1bd69e39c20bf6e45f4fb7ee57f0a2961e
-
-/***/ },
-/* 232 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-
-<<<<<<< HEAD
-	var Characters = React.createClass({
-		displayName: 'Characters',
-=======
-	var characterStore = __webpack_require__(233);
+	var characterStore = __webpack_require__(229);
 
 	var Results = React.createClass({
 		displayName: 'Results',
->>>>>>> a4e2dd1bd69e39c20bf6e45f4fb7ee57f0a2961e
 
 
 		render: function () {
 			return React.createElement(
 				'div',
 				null,
-<<<<<<< HEAD
-				'Characters'
-=======
 				React.createElement(
 					'h2',
 					null,
 					'Results'
 				)
->>>>>>> a4e2dd1bd69e39c20bf6e45f4fb7ee57f0a2961e
 			);
 		}
 	});
 
-<<<<<<< HEAD
-	module.exports = Characters;
-=======
 	module.exports = Results;
->>>>>>> a4e2dd1bd69e39c20bf6e45f4fb7ee57f0a2961e
 
 /***/ },
-/* 233 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var EventEmitter = __webpack_require__(234);
-	var $ = __webpack_require__(235);
+	var EventEmitter = __webpack_require__(230);
+	var $ = __webpack_require__(231);
 
-<<<<<<< HEAD
-	var Home = React.createClass({
-		displayName: 'Home',
-=======
 	var characterStore = Object.create(EventEmitter.prototype);
 	EventEmitter.call(characterStore);
->>>>>>> a4e2dd1bd69e39c20bf6e45f4fb7ee57f0a2961e
 
 	// Collection
 	var characters = [
 	    // Models
 	];
 
-<<<<<<< HEAD
-		render: function () {
-			return React.createElement(
-				'h1',
-				null,
-				'Home'
-			);
-		}
-
-	});
-
-	module.exports = Home;
-=======
 	characterStore.getCharacters = function () {
 	    return characters;
 	};
@@ -26609,7 +26487,7 @@
 	};
 
 /***/ },
-/* 234 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26926,7 +26804,7 @@
 
 
 /***/ },
-/* 235 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -37150,7 +37028,60 @@
 	return jQuery;
 	} );
 
->>>>>>> a4e2dd1bd69e39c20bf6e45f4fb7ee57f0a2961e
+
+/***/ },
+/* 232 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+
+	var Search = React.createClass({
+		displayName: "Search",
+
+
+		render: function () {
+			return React.createElement(
+				"div",
+				null,
+				React.createElement("input", {
+					type: "text",
+					placeholder: "Hero begins with..."
+					// value={this.state.newAnimalNameValue}
+					// onChange={this.handleNewAnimalNameChange}
+				}),
+				React.createElement("input", {
+					type: "text",
+					placeholder: "Foe begins with..."
+					// value={this.state.newAnimalSpeciesValue}
+					// onChange={this.handleNewAnimalSpeciesChange}
+				})
+			);
+		}
+	});
+
+	module.exports = Search;
+
+/***/ },
+/* 233 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+
+	var Home = React.createClass({
+		displayName: 'Home',
+
+
+		render: function () {
+			return React.createElement(
+				'h1',
+				null,
+				'Home'
+			);
+		}
+
+	});
+
+	module.exports = Home;
 
 /***/ }
 /******/ ]);
