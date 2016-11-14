@@ -26411,32 +26411,29 @@
 
 	var React = __webpack_require__(1);
 
+	var Search = __webpack_require__(231);
+
 	var Battleground = React.createClass({
-	  displayName: "Battleground",
+		displayName: 'Battleground',
 
 
-	  render: function () {
-	    return React.createElement(
-	      "div",
-	      null,
-	      React.createElement(
-	        "h1",
-	        null,
-	        "Battleground"
-	      ),
-	      React.createElement("input", {
-	        type: "text"
-	        // value={this.state.newAnimalNameValue}
-	        // onChange={this.handleNewAnimalNameChange}
-	      }),
-	      React.createElement("input", {
-	        type: "text"
-	        // value={this.state.newAnimalSpeciesValue}
-	        // onChange={this.handleNewAnimalSpeciesChange}
-	      }),
-	      React.createElement("button", null)
-	    );
-	  }
+		render: function () {
+			return React.createElement(
+				'div',
+				null,
+				React.createElement(
+					'h1',
+					null,
+					'Battleground'
+				),
+				React.createElement(Search, null),
+				React.createElement(
+					'button',
+					null,
+					'Fight'
+				)
+			);
+		}
 	});
 
 	module.exports = Battleground;
@@ -26484,6 +26481,38 @@
 	});
 
 	module.exports = Home;
+
+/***/ },
+/* 231 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+
+	var Search = React.createClass({
+		displayName: "Search",
+
+
+		render: function () {
+			return React.createElement(
+				"div",
+				null,
+				React.createElement("input", {
+					type: "text",
+					placeholder: "Hero begins with..."
+					// value={this.state.newAnimalNameValue}
+					// onChange={this.handleNewAnimalNameChange}
+				}),
+				React.createElement("input", {
+					type: "text",
+					placeholder: "Foe begins with..."
+					// value={this.state.newAnimalSpeciesValue}
+					// onChange={this.handleNewAnimalSpeciesChange}
+				})
+			);
+		}
+	});
+
+	module.exports = Search;
 
 /***/ }
 /******/ ]);
