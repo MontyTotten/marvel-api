@@ -26463,15 +26463,9 @@
 	EventEmitter.call(characterStore);
 
 	// Collection
-<<<<<<< HEAD
 	var characters = [];
 
 	var characterName = 'Spider';
-=======
-	var characters = [
-	    // Models
-	];
->>>>>>> 21d5c5e61332a5f9d4076f83fbb98a76e216ce49
 
 	characterStore.getCharacters = function () {
 	    return characters;
@@ -37050,7 +37044,6 @@
 
 	var React = __webpack_require__(1);
 
-<<<<<<< HEAD
 	var characterStore = __webpack_require__(229);
 
 	var Search = React.createClass({
@@ -37085,29 +37078,6 @@
 			this.setState({
 				newCharacterNameValue: e.target.value
 			});
-=======
-	var Search = React.createClass({
-		displayName: "Search",
-
-
-		render: function () {
-			return React.createElement(
-				"div",
-				null,
-				React.createElement("input", {
-					type: "text",
-					placeholder: "Hero begins with..."
-					// value={this.state.newAnimalNameValue}
-					// onChange={this.handleNewAnimalNameChange}
-				}),
-				React.createElement("input", {
-					type: "text",
-					placeholder: "Foe begins with..."
-					// value={this.state.newAnimalSpeciesValue}
-					// onChange={this.handleNewAnimalSpeciesChange}
-				})
-			);
->>>>>>> 21d5c5e61332a5f9d4076f83fbb98a76e216ce49
 		}
 	});
 
