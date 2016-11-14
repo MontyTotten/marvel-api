@@ -58,7 +58,11 @@
 	var App = __webpack_require__(227);
 	// var Battleground = require('./components/Battleground.jsx');
 	// var Characters = require('./components/Characters.jsx');
+<<<<<<< HEAD
 	var Home = __webpack_require__(232);
+=======
+	var Home = __webpack_require__(233);
+>>>>>>> 21d5c5e61332a5f9d4076f83fbb98a76e216ce49
 	// var Results = require('./components/Results.jsx');
 	// var Search = require('./components/Search.jsx');
 
@@ -26354,8 +26358,13 @@
 	var React = __webpack_require__(1);
 
 	var Link = __webpack_require__(172).Link;
+<<<<<<< HEAD
 	var Results = __webpack_require__(230);
 	var Search = __webpack_require__(231);
+=======
+	var Results = __webpack_require__(228);
+	var Search = __webpack_require__(232);
+>>>>>>> 21d5c5e61332a5f9d4076f83fbb98a76e216ce49
 
 	function getActiveClass(path) {
 		var current = window.location.hash.slice(1);
@@ -26426,6 +26435,7 @@
 	module.exports = App;
 
 /***/ },
+<<<<<<< HEAD
 /* 228 */,
 /* 229 */,
 /* 230 */
@@ -26488,32 +26498,54 @@
 
 /***/ },
 /* 232 */
+=======
+/* 228 */
+>>>>>>> 21d5c5e61332a5f9d4076f83fbb98a76e216ce49
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 
+<<<<<<< HEAD
 	var Home = React.createClass({
 		displayName: 'Home',
+=======
+	var characterStore = __webpack_require__(229);
+
+	var Results = React.createClass({
+		displayName: 'Results',
+>>>>>>> 21d5c5e61332a5f9d4076f83fbb98a76e216ce49
 
 
 		render: function () {
 			return React.createElement(
 				'h1',
 				null,
+<<<<<<< HEAD
 				'Home'
+=======
+				React.createElement(
+					'h2',
+					null,
+					'Results'
+				)
+>>>>>>> 21d5c5e61332a5f9d4076f83fbb98a76e216ce49
 			);
 		}
 
 	});
 
+<<<<<<< HEAD
 	module.exports = Home;
+=======
+	module.exports = Results;
+>>>>>>> 21d5c5e61332a5f9d4076f83fbb98a76e216ce49
 
 /***/ },
-/* 233 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var EventEmitter = __webpack_require__(234);
-	var $ = __webpack_require__(235);
+	var EventEmitter = __webpack_require__(230);
+	var $ = __webpack_require__(231);
 
 	var characterStore = Object.create(EventEmitter.prototype);
 	EventEmitter.call(characterStore);
@@ -26543,7 +26575,7 @@
 	};
 
 /***/ },
-/* 234 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26860,7 +26892,7 @@
 
 
 /***/ },
-/* 235 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -37084,6 +37116,63 @@
 	return jQuery;
 	} );
 
+<<<<<<< HEAD
+=======
+
+/***/ },
+/* 232 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+
+	var Search = React.createClass({
+		displayName: "Search",
+
+
+		render: function () {
+			return React.createElement(
+				"div",
+				null,
+				React.createElement("input", {
+					type: "text",
+					placeholder: "Hero begins with..."
+					// value={this.state.newAnimalNameValue}
+					// onChange={this.handleNewAnimalNameChange}
+				}),
+				React.createElement("input", {
+					type: "text",
+					placeholder: "Foe begins with..."
+					// value={this.state.newAnimalSpeciesValue}
+					// onChange={this.handleNewAnimalSpeciesChange}
+				})
+			);
+		}
+	});
+
+	module.exports = Search;
+
+/***/ },
+/* 233 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+
+	var Home = React.createClass({
+		displayName: 'Home',
+
+
+		render: function () {
+			return React.createElement(
+				'h1',
+				null,
+				'Home'
+			);
+		}
+
+	});
+
+	module.exports = Home;
+>>>>>>> 21d5c5e61332a5f9d4076f83fbb98a76e216ce49
 
 /***/ }
 /******/ ]);
