@@ -2,15 +2,4 @@
 npm-debug.log*
 node_modules/
 db.json
-<<<<<<< HEAD
-bundle.js
-=======
-<<<<<<< HEAD
-bundle.js
 dist/bundle.js
-
-dist/bundle.js
-=======
-bundle.js
->>>>>>> origin/master
->>>>>>> master
