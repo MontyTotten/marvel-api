@@ -21,7 +21,7 @@ var Search = React.createClass({
 				/>
 				<input
 					type="text"
-					placeholder="Foe begins with..."
+					placeholder="Foe begins with...."
 					// value={this.state.newCharacterNameValue}
 				/>
 			</div>	
