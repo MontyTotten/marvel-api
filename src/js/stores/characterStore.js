@@ -17,7 +17,7 @@ characterStore.fetchCharacters = function (offset) {
     offset = offset || 0;
     $.ajax({
         // method: 'GET',
-        url: 'http(s)://gateway.marvel.com/9bddb80853369b62c5366ed39b1a902f',
+        url: 'https://gateway.marvel.com/v1/public/characters?ts=1&apikey=36769a518f5f56f57a4e8015958e73ccc3d614c5',
         success: function (response) {
             var results = response.results;
             characters = characters.concat(results);
