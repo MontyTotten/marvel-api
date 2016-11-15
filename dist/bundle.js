@@ -58,7 +58,7 @@
 	var App = __webpack_require__(227);
 	// var Battleground = require('./components/Battleground.jsx');
 	// var Characters = require('./components/Characters.jsx');
-	var Home = __webpack_require__(232);
+	var Home = __webpack_require__(233);
 	// var Results = require('./components/Results.jsx');
 	// var Search = require('./components/Search.jsx');
 
@@ -26354,8 +26354,8 @@
 	var React = __webpack_require__(1);
 
 	var Link = __webpack_require__(172).Link;
-	var Results = __webpack_require__(230);
-	var Search = __webpack_require__(231);
+	var Results = __webpack_require__(228);
+	var Search = __webpack_require__(232);
 
 	function getActiveClass(path) {
 		var current = window.location.hash.slice(1);
@@ -26426,14 +26426,12 @@
 	module.exports = App;
 
 /***/ },
-/* 228 */,
-/* 229 */,
-/* 230 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 
-	var characterStore = __webpack_require__(233);
+	var characterStore = __webpack_require__(229);
 
 	var Results = React.createClass({
 		displayName: 'Results',
@@ -26447,7 +26445,8 @@
 					'h2',
 					null,
 					'Results'
-				)
+				),
+				React.createElement('ul', null)
 			);
 		}
 	});
@@ -26455,78 +26454,11 @@
 	module.exports = Results;
 
 /***/ },
-/* 231 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(1);
-
-	var characterStore = __webpack_require__(233);
-
-	var Search = React.createClass({
-		displayName: 'Search',
-
-
-		getIntialState: function () {
-			return {
-				newCharacterNameValue: ''
-			};
-		},
-
-		render: function () {
-			return React.createElement(
-				'div',
-				null,
-				React.createElement('input', {
-					type: 'text',
-					placeholder: 'Hero begins with...'
-					// value={this.state.newCharacterNameValue}
-					, onChange: this.handleNewCharacterName
-				}),
-				React.createElement('input', {
-					type: 'text',
-					placeholder: 'Foe begins with...'
-					// value={this.state.newCharacterNameValue}
-				})
-			);
-		},
-
-		handleNewCharacterName: function (e) {
-			this.setState({
-				newCharacterNameValue: e.target.value
-			});
-		}
-	});
-
-	module.exports = Search;
-
-/***/ },
-/* 232 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-
-	var Home = React.createClass({
-		displayName: 'Home',
-
-
-		render: function () {
-			return React.createElement(
-				'h1',
-				null,
-				'Home'
-			);
-		}
-
-	});
-
-	module.exports = Home;
-
-/***/ },
-/* 233 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var EventEmitter = __webpack_require__(234);
-	var $ = __webpack_require__(235);
+	var EventEmitter = __webpack_require__(230);
+	var $ = __webpack_require__(231);
 
 	var characterStore = Object.create(EventEmitter.prototype);
 	EventEmitter.call(characterStore);
@@ -26544,7 +26476,7 @@
 	    // offset = offset || 0;
 	    $.ajax({
 	        // method: 'GET',
-	        url: 'http://gateway.marvel.com/v1/public/characters?' + 'nameStartsWith=' + characterName + '&apikey=9bddb80853369b62c5366ed39b1a902f',
+	        url: 'http://gateway.marvel.com/v1/public/characters?apikey=9bddb80853369b62c5366ed39b1a902f&nameStartsWith=' + characterName,
 	        success: function (response) {
 	            characters = response.data.results;
 	            characterStore.emit('update');
@@ -26565,7 +26497,7 @@
 	module.exports = characterStore;
 
 /***/ },
-/* 234 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26882,7 +26814,7 @@
 
 
 /***/ },
-/* 235 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -37106,6 +37038,73 @@
 	return jQuery;
 	} );
 
+
+/***/ },
+/* 232 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+
+	var characterStore = __webpack_require__(229);
+
+	var Search = React.createClass({
+		displayName: 'Search',
+
+
+		getIntialState: function () {
+			return {
+				newCharacterNameValue: ''
+			};
+		},
+
+		render: function () {
+			return React.createElement(
+				'div',
+				null,
+				React.createElement('input', {
+					type: 'text',
+					placeholder: 'Hero begins with...',
+					value: this.state.newCharacterNameValue,
+					onChange: this.handleNewCharacterName
+				}),
+				React.createElement('input', {
+					type: 'text',
+					placeholder: 'Foe begins with....'
+					// value={this.state.newCharacterNameValue}
+				})
+			);
+		},
+
+		handleNewCharacterName: function (e) {
+			this.setState({
+				newCharacterNameValue: e.target.value
+			});
+		}
+	});
+
+	module.exports = Search;
+
+/***/ },
+/* 233 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+
+	var Home = React.createClass({
+		displayName: 'Home',
+
+
+		render: function () {
+			return React.createElement(
+				'h1',
+				null,
+				'Home'
+			);
+		}
+
+	});
+
+	module.exports = Home;
 
 /***/ }
 /******/ ]);
