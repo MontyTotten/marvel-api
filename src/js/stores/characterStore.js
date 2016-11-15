@@ -5,19 +5,23 @@ var characterStore = Object.create(EventEmitter.prototype);
 EventEmitter.call(characterStore);
 
 // Collection
+var apiKey = '9bddb80853369b62c5366ed39b1a902f'
+
 var characters = [];
 
-var characterName = 'Spider';
 
-characterStore.getCharacters = function () {
-	return characters;
+characterStore.getCharacters = function (id) {
+    if (id) {
+        return characters.find((character) => character.id === id);
+    } else {
+        return characters;
+    }
 }
 
-characterStore.fetchCharacters = function () {
-    // offset = offset || 0;
+characterStore.fetchCharacters = function (characterName) {
     $.ajax({
         // method: 'GET',
-        url: 'http://gateway.marvel.com/v1/public/characters?apikey=9bddb80853369b62c5366ed39b1a902f&nameStartsWith=' + characterName,
+        url: 'http://gateway.marvel.com/v1/public/characters?apikey=' + apiKey + '&nameStartsWith=' + characterName,
         success: function (response) {
             characters = response.data.results;
             characterStore.emit('update');
@@ -27,12 +31,12 @@ characterStore.fetchCharacters = function () {
     return characters;
 };
 
-function get () {
-    return characters;
-}
+// function get () {
+//     return characters;
+// };
 
 
-characterStore.get = get;
+// characterStore.get = get;
 
 window.characterStore = characterStore;
 

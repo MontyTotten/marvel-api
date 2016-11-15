@@ -7,8 +7,8 @@ var Search = React.createClass({
 
 	getIntialState: function () {
 		return {
-			characters: characterStore.getCharacters(),
-            newCharacterNameValue: '',
+			// characters: characterStore.getCharacters(),
+            characterNameValue: '',
         };
 	},
 	
@@ -22,27 +22,35 @@ var Search = React.createClass({
   //       });
 		return (
 			<div>
-			
+
 				<input
 					type="text"
 					placeholder="Hero begins with..."
-					// value={this.state.newCharacterNameValue}
-					onChange={this.handleNewCharacterName}
+					// value={this.state.characterNameValue}
+					onKeyDown={this.onKeyDown}
+					onChange={this.onChange}
+					ref="characterNameInput"
 				/>
-				<input
-					type="text"
-					placeholder="Foe begins with...."
-					// value={this.state.newCharacterNameValue}
-				/>
+				
 			</div>	
 		)
 	},
 
-	handleNewCharacterName: function (e) {
-        this.setState({
-            newCharacterNameValue: e.target.value
-        });
-    },
+	onKeyDown: function (e) {
+		if (e.keyCode == 13) {
+			characterStore.fetchCharacters(this.refs.characterNameInput.value);
+			this.setState({
+				characterNameValue: ""
+			})
+		}
+		this.props.onSearch(this.props.character);
+	},
+
+	onChange: function () {
+		this.setState({
+			characterNameValue: this.refs.characterNameInput.value
+		})
+	}
 
 
 })
