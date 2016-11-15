@@ -31,7 +31,7 @@ var App = React.createClass({
 					<h1>Marvel App</h1>
 					{this.props.children}
 					<Search />
-					<button>Fight</button>
+					<button>BATTLE</button>
 					<Results />
 				</main>
 				<footer>
