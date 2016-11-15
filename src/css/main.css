@@ -2,6 +2,7 @@
 	overflow: auto;
 	background-color: #E4212D;
 	height: 100px;
+	width: 100%;
 }
 
 #logo {
@@ -13,10 +14,18 @@
 	left: -80px;
 	top: -2px;
 }
+.background {
+	/*background-color: #021542;*/
+/*	padding-top: 5%;
+	width: 80%;
+	margin: 0 auto;*/
+	/*background-image: url("Images/comics.jpg");*/
+}
 
 .main { 
 	text-align: center;
 }
+
 input {
 	margin-right: 13%;
 	margin-left: 13%;
@@ -31,32 +40,34 @@ input {
 .characters {
 	/*background-color: ;*/
 	background-image: linear-gradient(#FFFFFF, #A5A7A6);
-	border: solid;
 	width: 40%;
 	height: 100%;
 	display: inline-block;
 }
 body {
-	background-color: #021542;
+	
+	background-image: url("Images/comicblack.jpg");
 }
 .rest {
-	margin-top: 25%;
-	height: 200px;
-	color: ;
+	margin-top: 15%;
+	
+	width: 60%;
 }
 input,
       select,
       submit {
         border: none;
         outline: none;
+        text-align: center;
       }
 button {
- 	font-size: 12px;
- -webkit-transition-duration: 0.4s; /* Safari */
+ 	font-size: 16px;
+ 	-webkit-transition-duration: 0.4s; /* Safari */
   	transition-duration: 0.2s;
     background-color: #E4212D; /* Red */
     color: #FFFFFF;
     font-family: 'Wallpoet', cursive;
+    text-align: center;
 }
 button:active {
 	color: red;
@@ -66,12 +77,16 @@ button:active {
 
 #results-box {
 	height: 150px;
-	background-color: #FFFFFF;
-	width: 73%;
+	background-image: linear-gradient(#808080, #A5A7A6);
+	width: 71%;
+	height: 200px;
 	margin: 0 auto;
 	opacity: 0.5;
-	margin-top: 2%;
-	border: solid;
+	margin-top: 4%;
+	border-top: 15px solid #E4212D;
+	border-bottom: 15px solid #E4212D;
+	border-left: 10px solid red;
+	border-right: 10px solid red;
 }
 
 footer p {
