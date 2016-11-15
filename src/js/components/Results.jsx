@@ -1,6 +1,7 @@
 var React = require('react');
 
 var characterStore = require('../stores/characterStore');
+var Search = require('./Search.jsx');
 
 
 

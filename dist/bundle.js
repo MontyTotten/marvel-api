@@ -56,12 +56,11 @@
 	var hashHistory = ReactRouter.hashHistory;
 
 	var App = __webpack_require__(227);
+	var Home = __webpack_require__(233);
 	// var Battleground = require('./components/Battleground.jsx');
 	// var Characters = require('./components/Characters.jsx');
-	var Home = __webpack_require__(233);
 	// var Results = require('./components/Results.jsx');
 	// var Search = require('./components/Search.jsx');
-
 
 	var jsx = React.createElement(
 		Router,
@@ -26432,6 +26431,7 @@
 	var React = __webpack_require__(1);
 
 	var characterStore = __webpack_require__(229);
+	var Search = __webpack_require__(232);
 
 	var Results = React.createClass({
 		displayName: 'Results',
@@ -37044,6 +37044,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
+	var Link = __webpack_require__(172).Link;
 
 	var characterStore = __webpack_require__(229);
 
@@ -37053,19 +37054,27 @@
 
 		getIntialState: function () {
 			return {
+				characters: characterStore.getCharacters(),
 				newCharacterNameValue: ''
 			};
 		},
 
 		render: function () {
+			// var links = this.state.characters.map(function (a) {
+			//           return (
+			//               <li key={a.id}>
+			//                   <Link to={'/animals/' + a.id}>{a.name}</Link>
+			//               </li>
+			//           );
+			//       });
 			return React.createElement(
 				'div',
 				null,
 				React.createElement('input', {
 					type: 'text',
-					placeholder: 'Hero begins with...',
-					value: this.state.newCharacterNameValue,
-					onChange: this.handleNewCharacterName
+					placeholder: 'Hero begins with...'
+					// value={this.state.newCharacterNameValue}
+					, onChange: this.handleNewCharacterName
 				}),
 				React.createElement('input', {
 					type: 'text',
@@ -37080,6 +37089,7 @@
 				newCharacterNameValue: e.target.value
 			});
 		}
+
 	});
 
 	module.exports = Search;

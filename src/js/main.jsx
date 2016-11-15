@@ -10,12 +10,11 @@ var IndexRoute = ReactRouter.IndexRoute; // Does not take a path
 var hashHistory = ReactRouter.hashHistory;
 
 var App = require('./components/App.jsx');
+var Home = require('./components/Home.jsx');
 // var Battleground = require('./components/Battleground.jsx');
 // var Characters = require('./components/Characters.jsx');
-var Home = require('./components/Home.jsx');
 // var Results = require('./components/Results.jsx');
 // var Search = require('./components/Search.jsx');
-
 
 var jsx = (
 	<Router history={hashHistory}>
