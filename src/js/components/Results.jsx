@@ -10,6 +10,7 @@ var Results = React.createClass({
 		return ( 
 			<div>
 				<h2>Results</h2>
+				<ul></ul>
             </div>
 		)
 	}
