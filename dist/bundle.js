@@ -56,7 +56,7 @@
 	var hashHistory = ReactRouter.hashHistory;
 
 	var App = __webpack_require__(227);
-	var Home = __webpack_require__(233);
+	var Home = __webpack_require__(235);
 	// var Battleground = require('./components/Battleground.jsx');
 	// var Characters = require('./components/Characters.jsx');
 	// var Results = require('./components/Results.jsx');
@@ -26353,8 +26353,8 @@
 	var React = __webpack_require__(1);
 
 	var Link = __webpack_require__(172).Link;
-	var Results = __webpack_require__(228);
-	var Search = __webpack_require__(232);
+	var Results = __webpack_require__(229);
+	var Search = __webpack_require__(234);
 
 	function getActiveClass(path) {
 		var current = window.location.hash.slice(1);
@@ -26425,13 +26425,14 @@
 	module.exports = App;
 
 /***/ },
-/* 228 */
+/* 228 */,
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 
-	var characterStore = __webpack_require__(229);
-	var Search = __webpack_require__(232);
+	var characterStore = __webpack_require__(230);
+	var Search = __webpack_require__(234);
 
 	var Results = React.createClass({
 		displayName: 'Results',
@@ -26454,11 +26455,11 @@
 	module.exports = Results;
 
 /***/ },
-/* 229 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var EventEmitter = __webpack_require__(230);
-	var $ = __webpack_require__(231);
+	var EventEmitter = __webpack_require__(231);
+	var $ = __webpack_require__(232);
 
 	var characterStore = Object.create(EventEmitter.prototype);
 	EventEmitter.call(characterStore);
@@ -26497,7 +26498,7 @@
 	module.exports = characterStore;
 
 /***/ },
-/* 230 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26814,7 +26815,7 @@
 
 
 /***/ },
-/* 231 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -37040,13 +37041,14 @@
 
 
 /***/ },
-/* 232 */
+/* 233 */,
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var Link = __webpack_require__(172).Link;
 
-	var characterStore = __webpack_require__(229);
+	var characterStore = __webpack_require__(230);
 
 	var Search = React.createClass({
 		displayName: 'Search',
@@ -37095,7 +37097,7 @@
 	module.exports = Search;
 
 /***/ },
-/* 233 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
