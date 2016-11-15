@@ -56,7 +56,7 @@
 	var hashHistory = ReactRouter.hashHistory;
 
 	var App = __webpack_require__(227);
-	var Home = __webpack_require__(233);
+	var Home = __webpack_require__(235);
 	// var Battleground = require('./components/Battleground.jsx');
 	// var Characters = require('./components/Characters.jsx');
 	// var Results = require('./components/Results.jsx');
@@ -26353,8 +26353,10 @@
 	var React = __webpack_require__(1);
 
 	var Link = __webpack_require__(172).Link;
-	var Results = __webpack_require__(228);
-	var Search = __webpack_require__(232);
+	var CharacterSelection = __webpack_require__(228);
+	var Results = __webpack_require__(229);
+	var Search = __webpack_require__(234);
+	var characterStore = "../stores/characterStore.js";
 
 	function getActiveClass(path) {
 		var current = window.location.hash.slice(1);
@@ -26367,43 +26369,70 @@
 
 		getInitialState: function () {
 			return {
-				// left: ,
-				// right: ,
-				active: 'left' || 'right' || null
+				characterNumber: null,
+				displayResults: false,
+				characterOne: null,
+				characterTwo: null
 			};
 		},
 
 		render: function () {
 
+			var leftCharacterImage;
+			var rightCharacterImage;
+
+			if (this.state.characterOne) {
+				leftCharacterImage = this.state.characterOne.thumbnail.path + "." + this.state.characterOne.thumbnail.extension;
+			} else {
+				leftCharacterImage = "./Images/good.png";
+			}
+
+			if (this.state.characterTwo) {
+				rightCharacterImage = this.state.characterTwo.thumbnail.path + "." + this.state.characterTwo.thumbnail.extension;
+			} else {
+				rightCharacterImage = "./Images/bad.png";
+			}
+
+			var results;
+			if (this.state.displayResults) {
+				results = React.createElement(Results, { onChoose: this.onSelect });
+			}
+
 			return React.createElement(
 				'div',
 				null,
 				React.createElement(
-					'header',
-					null,
+					'div',
+					{ className: 'container' },
 					React.createElement(
-						Link,
-						{ to: '/', className: getActiveClass('/') },
-						'Home'
+						'div',
+						{ id: 'container-left' },
+						React.createElement(CharacterSelection, {
+							id: 'left',
+							image: leftCharacterImage,
+							selected: this.characterNumber === 1 ? true : false
+						})
+					),
+					React.createElement(
+						'div',
+						{ id: 'container-right' },
+						React.createElement(CharacterSelection, {
+							id: 'right',
+							image: rightCharacterImage,
+							selected: this.characterNumber === 2 ? true : false
+						})
 					)
 				),
+				React.createElement(Search, { character: 1, onSearch: this.displayResults }),
+				React.createElement('div', { className: 'results' }),
 				React.createElement(
-					'main',
-					null,
-					React.createElement(
-						'h1',
-						null,
-						'Marvel App'
-					),
-					this.props.children,
-					React.createElement(Search, null),
-					React.createElement(
-						'button',
-						null,
-						'BATTLE'
-					),
-					React.createElement(Results, null)
+					'button',
+					{ className: 'button' },
+					'BATTLE'
 				),
+				React.createElement('div', { className: 'results' }),
+				React.createElement(Search, { character: 2, onSearch: this.displayResults }),
+				results,
 				React.createElement(
 					'footer',
 					null,
@@ -26419,6 +26448,26 @@
 					)
 				)
 			);
+		},
+
+		displayResults: function (selection) {
+			this.setState({
+				characterNumber: selection,
+				displayResults: true
+			});
+		},
+
+		onSelect: function (id) {
+			var character = characterStore.getCharacters(id);
+			if (this.state.characterNumber === 1) {
+				this.setState({
+					characterOne: character
+				});
+			} else if (this.state.characterNumber === 2) {
+				this.setState({
+					characterTwo: character
+				});
+			}
 		}
 	});
 
@@ -26430,23 +26479,64 @@
 
 	var React = __webpack_require__(1);
 
-	var characterStore = __webpack_require__(229);
-	var Search = __webpack_require__(232);
+	var CharacterSelection = React.createClass({
+		displayName: "CharacterSelection",
+
+
+		render: function () {
+			var style = {
+				"backgroundImage": "url(" + this.props.image + ")"
+			};
+			return React.createElement("div", { id: this.props.id, style: style });
+		}
+	});
+
+	module.exports = CharacterSelection;
+
+/***/ },
+/* 229 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+
+	var characterStore = __webpack_require__(230);
+	var Character = __webpack_require__(233);
+	var Search = __webpack_require__(234);
 
 	var Results = React.createClass({
 		displayName: 'Results',
 
 
+		getInitialState: function () {
+			return {
+				searchResults: characterStore.getCharacters()
+			};
+		},
+
+		componentWillMount: function () {
+			var _this = this;
+			characterStore.on("update", function () {
+				_this.setState({
+					searchResults: characterStore.getCharacters()
+				});
+			});
+		},
+
 		render: function () {
+			var _this = this;
+			var characters = this.state.searchResults.map(function (character) {
+				return React.createElement(Character, {
+					name: character.name,
+					key: character.id,
+					id: character.id,
+					onChoose: _this.props.onChoose,
+					thumb: character.thumbnail.path + "." + character.thumbnail.extension });
+			});
+
 			return React.createElement(
-				'div',
-				null,
-				React.createElement(
-					'h2',
-					null,
-					'Results'
-				),
-				React.createElement('ul', null)
+				'ul',
+				{ id: 'character-results-list' },
+				characters
 			);
 		}
 	});
@@ -26454,29 +26544,32 @@
 	module.exports = Results;
 
 /***/ },
-/* 229 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var EventEmitter = __webpack_require__(230);
-	var $ = __webpack_require__(231);
+	var EventEmitter = __webpack_require__(231);
+	var $ = __webpack_require__(232);
 
 	var characterStore = Object.create(EventEmitter.prototype);
 	EventEmitter.call(characterStore);
 
 	// Collection
+	var apiKey = '9bddb80853369b62c5366ed39b1a902f';
+
 	var characters = [];
 
-	var characterName = 'Spider';
-
-	characterStore.getCharacters = function () {
-	    return characters;
+	characterStore.getCharacters = function (id) {
+	    if (id) {
+	        return characters.find(character => character.id === id);
+	    } else {
+	        return characters;
+	    }
 	};
 
-	characterStore.fetchCharacters = function () {
-	    // offset = offset || 0;
+	characterStore.fetchCharacters = function (characterName) {
 	    $.ajax({
 	        // method: 'GET',
-	        url: 'http://gateway.marvel.com/v1/public/characters?apikey=9bddb80853369b62c5366ed39b1a902f&nameStartsWith=' + characterName,
+	        url: 'http://gateway.marvel.com/v1/public/characters?apikey=' + apiKey + '&nameStartsWith=' + characterName,
 	        success: function (response) {
 	            characters = response.data.results;
 	            characterStore.emit('update');
@@ -26486,18 +26579,19 @@
 	    return characters;
 	};
 
-	function get() {
-	    return characters;
-	}
+	// function get () {
+	//     return characters;
+	// };
 
-	characterStore.get = get;
+
+	// characterStore.get = get;
 
 	window.characterStore = characterStore;
 
 	module.exports = characterStore;
 
 /***/ },
-/* 230 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26814,7 +26908,7 @@
 
 
 /***/ },
-/* 231 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -37040,13 +37134,50 @@
 
 
 /***/ },
-/* 232 */
+/* 233 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+
+	var Character = React.createClass({
+		displayName: "Character",
+
+
+		// <Character
+		// name={character.name}
+		// key={character.id}
+		// id={character.id}
+		// onChoose={this.props.onSelect} />
+		// );
+
+		render: function () {
+			return React.createElement(
+				"li",
+				{ className: "character-list", onClick: this.handleClick },
+				React.createElement(
+					"div",
+					{ className: "character-name" },
+					this.props.name
+				),
+				React.createElement("img", { src: this.props.thumb, className: "thumb" })
+			);
+		},
+
+		handleClick: function () {
+			this.props.onChoose(this.props.id);
+		}
+	});
+
+	module.exports = Character;
+
+/***/ },
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var Link = __webpack_require__(172).Link;
 
-	var characterStore = __webpack_require__(229);
+	var characterStore = __webpack_require__(230);
 
 	var Search = React.createClass({
 		displayName: 'Search',
@@ -37054,8 +37185,8 @@
 
 		getIntialState: function () {
 			return {
-				characters: characterStore.getCharacters(),
-				newCharacterNameValue: ''
+				// characters: characterStore.getCharacters(),
+				characterNameValue: ''
 			};
 		},
 
@@ -37073,20 +37204,27 @@
 				React.createElement('input', {
 					type: 'text',
 					placeholder: 'Hero begins with...'
-					// value={this.state.newCharacterNameValue}
-					, onChange: this.handleNewCharacterName
-				}),
-				React.createElement('input', {
-					type: 'text',
-					placeholder: 'Foe begins with....'
-					// value={this.state.newCharacterNameValue}
+					// value={this.state.characterNameValue}
+					, onKeyDown: this.onKeyDown,
+					onChange: this.onChange,
+					ref: 'characterNameInput'
 				})
 			);
 		},
 
-		handleNewCharacterName: function (e) {
+		onKeyDown: function (e) {
+			if (e.keyCode == 13) {
+				characterStore.fetchCharacters(this.refs.characterNameInput.value);
+				this.setState({
+					characterNameValue: ""
+				});
+			}
+			this.props.onSearch(this.props.character);
+		},
+
+		onChange: function () {
 			this.setState({
-				newCharacterNameValue: e.target.value
+				characterNameValue: this.refs.characterNameInput.value
 			});
 		}
 
@@ -37095,7 +37233,7 @@
 	module.exports = Search;
 
 /***/ },
-/* 233 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
