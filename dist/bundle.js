@@ -26423,7 +26423,7 @@
 						})
 					)
 				),
-				React.createElement(Search, { character: 1, onSearch: this.displayResults }),
+				React.createElement(Search, { id: 'left-search', character: 1, onSearch: this.displayResults }),
 				React.createElement('div', { className: 'results' }),
 				React.createElement(
 					'button',
@@ -26431,7 +26431,7 @@
 					'BATTLE'
 				),
 				React.createElement('div', { className: 'results' }),
-				React.createElement(Search, { character: 2, onSearch: this.displayResults }),
+				React.createElement(Search, { id: 'right-search', character: 2, onSearch: this.displayResults }),
 				results,
 				React.createElement(
 					'footer',
@@ -37201,7 +37201,7 @@
 			return React.createElement(
 				'div',
 				null,
-				React.createElement('input', {
+				React.createElement('input', { id: 'search-input',
 					type: 'text',
 					placeholder: 'Hero begins with...'
 					// value={this.state.characterNameValue}
