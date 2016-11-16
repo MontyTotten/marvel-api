@@ -64,11 +64,11 @@ var App = React.createClass({
 							/>
 					</div>
 				</div>
-				<Search character={1} onSearch={this.displayResults} />
+				<Search id="left-search" character={1} onSearch={this.displayResults} />
 				<div className="results"></div>
 				<button className="button">BATTLE</button>
 				<div className="results"></div>
-				<Search character={2} onSearch={this.displayResults} />
+				<Search id="right-search" character={2} onSearch={this.displayResults} />
 				{results}
 				<footer>
 					<p>Data provided by Marvel. © 2014 Marvel</p>
