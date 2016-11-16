@@ -23,7 +23,7 @@ var Search = React.createClass({
 		return (
 			<div>
 
-				<input
+				<input id="search-input"
 					type="text"
 					placeholder="Hero begins with..."
 					// value={this.state.characterNameValue}
