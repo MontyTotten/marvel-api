@@ -12,8 +12,10 @@ var Character = React.createClass({
 	render: function () {
 		return (
 			<li className="character-list" onClick={this.handleClick}>
-				<div className="character-name">{this.props.name}</div>
-				<img src={this.props.thumb} className="thumb" />
+				<div className="contain-char">
+					<div className="character-name">{this.props.name}</div>
+					<img src={this.props.thumb} className="thumb" />
+				</div>
 			</li>
 		);
 	},

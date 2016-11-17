@@ -1,5 +1,11 @@
+
+body {
+	
+	background-image: url("Images/comics87.jpg");
+}
+
 .red {
-	overflow: auto;
+	overflow: hidden;
 	background-color: #E4212D;
 	height: 80px;
 	position: relative;
@@ -15,19 +21,12 @@
 
 h1 {
 	font-family: 'Russo One', sans-serif;
-	font-size: 88px;
+	font-size: 60px;
 	display: inline;
 	position: absolute;
-	top: -68px;
+	top: -22px;
 }
 
-#contain {
-	display: flex;
-	display: -webkit-flex;
-	-webkit-justify-content: space-around;
-	justify-content: space-around;
-	margin: 5%;
-}
 #container div {
 	width: 200px;
 }
@@ -41,55 +40,63 @@ input {
 	width: 160%;
 }
 .container {
-	width: 90%;
+	/*width: 70%;*/
 	height: 400px;
 	margin: 0 auto;
 	margin-top: 5%;
 	opacity: 0.5;
 	text-align: center;
+
 }
 #container-left,
 #container-right {
 	/*background-color: ;*/
 	/*background-image: linear-gradient(#FFFFFF, #A5A7A6);*/
-	width: 45%;
+	width: 40%;
 	height: 100%;
 	display: inline-block;
 	background-color: #A5A7A6;
-	margin: 2%;
-}
-
-body {
-	
-	background-image: url("Images/comics87.jpg");
+	border-top: 15px solid #E4212D;
+	border-bottom: 15px solid #E4212D;
+	border-left: 10px solid red;
+	border-right: 10px solid red;
+	/*margin: 2%;*/
 }
 .rest {
 	margin-top: 15%;
 	
 	width: 60%;
 }
-#left-search,
-#right-search {
-	font-size: 20pt;
-	height: 50px;
+
+
+/*The search bars*/
+
+#contain {
+	display: flex;
+	display: -webkit-flex;
+	-webkit-justify-content: space-around;
+	justify-content: space-around;
+	width: 80%;
+	position: relative;
+	/*left: -60px;*/
+}
+#search-input {
+	/*width: 150%;*/
+	/*height: 20px;*/
+	font-size: 16pt;
+	background-color: none;
+	outline: none;
+	background-color:rgba(0, 0, 0, 0);
+}
+#left-search {
+	/*margin-left: 90%;*/
 }
 
-#character-results-list {
-    position: absolute;
-    background-color: #f9f9f9;
-    width: 40%;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
-    z-index: 1;
+#right-search {
+	
 }
-#character-list {
-	margin: 0 auto;
-}
-.thumb {
-	width: 30%;
-	text-align: center;
-}
+
+/*BATTLE Button*/
 input,
       select,
       submit {
@@ -105,7 +112,7 @@ button {
     background-color: #E4212D; /* Red */
     color: #FFFFFF;
     font-family: 'Wallpoet', cursive;
-    text-align: center;
+   margin: auto 0;
 }
 button:active {
 	color: red;
@@ -113,22 +120,54 @@ button:active {
 	transition-duration: 0.6s;
 }
 
+
+
+/*Character list*/
+#character-results-list {
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    list-style-type: none;
+    text-align: center;
+}
+#character-list {
+	margin: 0 auto;
+}
+.contain-char {
+	float: left;
+	display: inline;
+	width: 40%;
+}
+.character-name {
+	font-family: 'Abel', sans-serif;
+}
+.thumb {
+	width: 40%;
+	height: 100px;
+}
+
+/*Results Box*/
 #results-box {
 	height: 150px;
 	/*background-image: linear-gradient(#808080, #A5A7A6);*/
 	background-color: #808080;
-	width: 82%;
+	width: 70%;
 	height: 250px;
 	margin: 0 auto;
 	opacity: 0.5;
 	margin-top: 4%;
 	margin-bottom: 5%;
+	overflow: auto;
 	border-top: 15px solid #E4212D;
 	border-bottom: 15px solid #E4212D;
 	border-left: 10px solid red;
 	border-right: 10px solid red;
 }
 
+/*Obvs footer*/
 footer p {
 	margin-left: 2%;
 	font-size: 12px;
