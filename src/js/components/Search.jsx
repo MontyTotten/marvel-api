@@ -8,7 +8,8 @@ var Search = React.createClass({
 	getIntialState: function () {
 		return {
 			// characters: characterStore.getCharacters(),
-            characterNameValue: '',
+            characterName1Value: '',
+            characterName2Value: '',
         };
 	},
 	
@@ -23,24 +24,42 @@ var Search = React.createClass({
 		return (
 			<div>
 
-				<input id="search-input"
+				<input id="search-input-left"
 					type="text"
 					placeholder="Hero begins with..."
-					value={this.props.characterNameValue}
+					value={this.props.character1NameValue}
 					onKeyDown={this.onKeyDown}
 					onChange={this.onChange}
-					ref="characterNameInput"
+					ref="characterNameInput1"
 				/>
-				
+				<input id="search-input-right"
+					type="text"
+					placeholder="Foe begins with..."
+					value={this.props.characterName2Value}
+					onKeyUp={this.onKeyUp}
+					onChange={this.onChange}
+					ref="characterNameInput2"
+				/>
+
 			</div>	
 		)
 	},
 
 	onKeyDown: function (e) {
 		if (e.keyCode == 13) {
-			characterStore.fetchCharacters(this.refs.characterNameInput.value);
+			characterStore.fetchCharacters(this.refs.characterNameInput1.value);
 			this.setState({
-				characterNameValue: ""
+				characterName1Value: ''
+			})
+		}
+		this.props.onSearch(this.props.character);
+	},
+
+	onKeyUp: function (e) {
+		if (e.keyCode == 13) {
+			characterStore.fetchCharacters(this.refs.characterNameInput2.value);
+			this.setState({
+				characterName2Value: ''
 			})
 		}
 		this.props.onSearch(this.props.character);
@@ -48,7 +67,8 @@ var Search = React.createClass({
 
 	onChange: function () {
 		this.setState({
-			characterNameValue: this.refs.characterNameInput.value
+			characterName1Value: this.refs.characterNameInput1.value,
+			characterName2Value: this.refs.characterNameInput2.value
 		})
 	}
 

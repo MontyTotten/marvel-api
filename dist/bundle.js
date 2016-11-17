@@ -56,7 +56,6 @@
 	var hashHistory = ReactRouter.hashHistory;
 
 	var App = __webpack_require__(227);
-	var Home = __webpack_require__(235);
 	// var Battleground = require('./components/Battleground.jsx');
 	// var Characters = require('./components/Characters.jsx');
 	// var Results = require('./components/Results.jsx');
@@ -65,11 +64,7 @@
 	var jsx = React.createElement(
 		Router,
 		{ history: hashHistory },
-		React.createElement(
-			Route,
-			{ path: '/', component: App },
-			React.createElement(IndexRoute, { component: Home })
-		)
+		React.createElement(Route, { path: '/', component: App })
 	);
 
 	ReactDOM.render(jsx, document.querySelector('#app'));
@@ -26427,9 +26422,7 @@
 					'div',
 					{ id: 'contain' },
 					React.createElement(Search, { id: 'left-search', character: 1, onSearch: this.displayResults }),
-					React.createElement('div', { className: 'results' }),
-					React.createElement('div', { className: 'results' }),
-					React.createElement(Search, { id: 'right-search', character: 2, onSearch: this.displayResults })
+					React.createElement('div', { className: 'results' })
 				),
 				React.createElement(
 					'button',
@@ -26530,7 +26523,7 @@
 		render: function () {
 			var _this = this;
 			var characters = this.state.searchResults.map(function (character) {
-				return React.createElement(Character, { id: 'heros',
+				return React.createElement(Character, {
 					name: character.name,
 					key: character.id,
 					id: character.id,
@@ -26563,9 +26556,15 @@
 
 	var characters = [];
 
+	function findById(id) {
+	    return characters.find(function (char) {
+	        return char.id === id;
+	    });
+	}
+
 	characterStore.getCharacters = function (id) {
 	    if (id) {
-	        return characters.find(character => character.id === id);
+	        return findById(Number(id));
 	    } else {
 	        return characters;
 	    }
@@ -37191,7 +37190,8 @@
 		getIntialState: function () {
 			return {
 				// characters: characterStore.getCharacters(),
-				characterNameValue: ''
+				characterName1Value: '',
+				characterName2Value: ''
 			};
 		},
 
@@ -37206,22 +37206,40 @@
 			return React.createElement(
 				'div',
 				null,
-				React.createElement('input', { id: 'search-input',
+				React.createElement('input', { id: 'search-input-left',
 					type: 'text',
 					placeholder: 'Hero begins with...',
-					value: this.props.characterNameValue,
+					value: this.props.character1NameValue,
 					onKeyDown: this.onKeyDown,
 					onChange: this.onChange,
-					ref: 'characterNameInput'
+					ref: 'characterNameInput1'
+				}),
+				React.createElement('input', { id: 'search-input-right',
+					type: 'text',
+					placeholder: 'Foe begins with...',
+					value: this.props.characterName2Value,
+					onKeyUp: this.onKeyUp,
+					onChange: this.onChange,
+					ref: 'characterNameInput2'
 				})
 			);
 		},
 
 		onKeyDown: function (e) {
 			if (e.keyCode == 13) {
-				characterStore.fetchCharacters(this.refs.characterNameInput.value);
+				characterStore.fetchCharacters(this.refs.characterNameInput1.value);
 				this.setState({
-					characterNameValue: ""
+					characterName1Value: ''
+				});
+			}
+			this.props.onSearch(this.props.character);
+		},
+
+		onKeyUp: function (e) {
+			if (e.keyCode == 13) {
+				characterStore.fetchCharacters(this.refs.characterNameInput2.value);
+				this.setState({
+					characterName2Value: ''
 				});
 			}
 			this.props.onSearch(this.props.character);
@@ -37229,35 +37247,14 @@
 
 		onChange: function () {
 			this.setState({
-				characterNameValue: this.refs.characterNameInput.value
+				characterName1Value: this.refs.characterNameInput1.value,
+				characterName2Value: this.refs.characterNameInput2.value
 			});
 		}
 
 	});
 
 	module.exports = Search;
-
-/***/ },
-/* 235 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-
-	var Home = React.createClass({
-		displayName: 'Home',
-
-
-		render: function () {
-			return React.createElement(
-				'h1',
-				null,
-				'Home'
-			);
-		}
-
-	});
-
-	module.exports = Home;
 
 /***/ }
 /******/ ]);

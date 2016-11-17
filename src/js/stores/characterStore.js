@@ -9,14 +9,19 @@ var apiKey = '9bddb80853369b62c5366ed39b1a902f'
 
 var characters = [];
 
+function findById (id) {
+    return characters.find(function (char) {
+        return char.id === id;
+    });
+}
 
 characterStore.getCharacters = function (id) {
     if (id) {
-        return characters.find((character) => character.id === id);
+        return findById(Number(id));
     } else {
         return characters;
     }
-}
+};
 
 characterStore.fetchCharacters = function (characterName) {
     $.ajax({
