@@ -67,13 +67,6 @@ var App = React.createClass({
 				<div id="contain">
 					<Search id="left-search" character={1} onSearch={this.displayResults} />
 					<div className="results"></div>
-<<<<<<< Updated upstream
-				
-=======
-					
-					<div className="results"></div>
-					<Search id="right-search" character={2} onSearch={this.displayResults} />
->>>>>>> Stashed changes
 				</div>
 				<button className="button">BATTLE</button>
 				{results}

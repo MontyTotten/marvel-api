@@ -28,11 +28,7 @@ var Results = React.createClass({
 		var _this = this;
 		var characters = this.state.searchResults.map(function (character) {
 			return ( 
-<<<<<<< Updated upstream
-				<Character
-=======
 				<Character 
->>>>>>> Stashed changes
 				name={character.name}
 				key={character.id}
 				id={character.id}
