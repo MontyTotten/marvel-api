@@ -64,12 +64,15 @@ var App = React.createClass({
 							/>
 					</div>
 				</div>
+				<div id="contain">
 				<Search id="left-search" character={1} onSearch={this.displayResults} />
 				<div className="results"></div>
 				<button className="button">BATTLE</button>
 				<div className="results"></div>
 				<Search id="right-search" character={2} onSearch={this.displayResults} />
+				</div>
 				{results}
+				<div id="results-box"></div>
 				<footer>
 					<p>Data provided by Marvel. © 2014 Marvel</p>
 					<p>Looks and Logic provided Kate & Monty.</p>

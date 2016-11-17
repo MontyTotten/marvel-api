@@ -26525,7 +26525,7 @@
 		render: function () {
 			var _this = this;
 			var characters = this.state.searchResults.map(function (character) {
-				return React.createElement(Character, {
+				return React.createElement(Character, { id: 'heros',
 					name: character.name,
 					key: character.id,
 					id: character.id,
@@ -37201,7 +37201,7 @@
 			return React.createElement(
 				'div',
 				null,
-				React.createElement('input', {
+				React.createElement('input', { id: 'search-input',
 					type: 'text',
 					placeholder: 'Hero begins with...'
 					// value={this.state.characterNameValue}
