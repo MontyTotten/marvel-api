@@ -23,10 +23,10 @@ var Search = React.createClass({
 		return (
 			<div>
 
-				<input
+				<input id="search-input"
 					type="text"
 					placeholder="Hero begins with..."
-					// value={this.state.characterNameValue}
+					value={this.props.characterNameValue}
 					onKeyDown={this.onKeyDown}
 					onChange={this.onChange}
 					ref="characterNameInput"

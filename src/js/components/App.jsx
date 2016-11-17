@@ -64,12 +64,16 @@ var App = React.createClass({
 							/>
 					</div>
 				</div>
-				<Search character={1} onSearch={this.displayResults} />
-				<div className="results"></div>
+				<div id="contain">
+					<Search id="left-search" character={1} onSearch={this.displayResults} />
+					<div className="results"></div>
+					
+					<div className="results"></div>
+					<Search id="right-search" character={2} onSearch={this.displayResults} />
+				</div>
 				<button className="button">BATTLE</button>
-				<div className="results"></div>
-				<Search character={2} onSearch={this.displayResults} />
 				{results}
+				<div id="results-box"></div>
 				<footer>
 					<p>Data provided by Marvel. © 2014 Marvel</p>
 					<p>Looks and Logic provided Kate & Monty.</p>
@@ -77,7 +81,6 @@ var App = React.createClass({
 			</div>
 		);
 	},
-
 
 	displayResults: function (selection) {
 		this.setState({
