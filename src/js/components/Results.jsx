@@ -28,7 +28,7 @@ var Results = React.createClass({
 		var _this = this;
 		var characters = this.state.searchResults.map(function (character) {
 			return ( 
-				<Character id="heros"
+				<Character
 				name={character.name}
 				key={character.id}
 				id={character.id}
