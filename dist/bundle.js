@@ -26429,6 +26429,10 @@
 					React.createElement(Search, { id: 'left-search', character: 1, onSearch: this.displayResults }),
 					React.createElement('div', { className: 'results' }),
 					React.createElement('div', { className: 'results' }),
+					React.createElement(Search, { id: 'right-search', character: 2, onSearch: this.displayResults }),
+					React.createElement(Search, { id: 'left-search', character: 1, onSearch: this.displayResults }),
+					React.createElement('div', { className: 'results' }),
+					React.createElement('div', { className: 'results' }),
 					React.createElement(Search, { id: 'right-search', character: 2, onSearch: this.displayResults })
 				),
 				React.createElement(
